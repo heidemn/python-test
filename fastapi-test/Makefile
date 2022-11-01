@@ -2,5 +2,8 @@
 run:
 	uvicorn main:app --reload
 
-install:
+prod:
+	gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
+
+deps:
 	pip3 install -r requirements.txt
